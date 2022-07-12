@@ -63,19 +63,22 @@ function drawCanvas(){
 
 let info = {
 ramo: 'Escoteiro',
-cor: '#007739',
+cor1: '#007739',
+cor2: '154D30',
 chefe: 'Chefe de Sessão'
 }
 
 if(document.getElementById('lobinho').checked){
 info.ramo = 'Lobinho'
-info.cor = '#FED702'
+info.cor1 = '#00295C'
+info.cor2 = '#FED702'
 info.chefe = 'Akelá da Alcatéia'
 
 }
 else{
 info.ramo = 'Escoteiro'
-info.cor = '#007739'
+info.cor1 = '#007739'
+info.cor2 = '#154D30'
 info.chefe = 'Chefe de Sessão'
 
 }
@@ -87,14 +90,14 @@ ctx.fillRect(0, 0, 2380, 3368);
 // Cabeçalho
 
 ctx.beginPath();
-ctx.fillStyle = info.cor;
-ctx.rect(-50, -50, 2600, 440);
-ctx.lineWidth = "6";
-ctx.strokeStyle = "RGBA(0,0,0,0.50)";
+ctx.fillStyle = info.cor1;
+ctx.rect(-75, -75, 2600, 490);
+ctx.lineWidth = "8";
+ctx.strokeStyle = info.cor2;
 ctx.fill();
 ctx.save();
 ctx.clip();
-ctx.lineWidth *= 8;
+ctx.lineWidth *= 16;
 ctx.fill();
 ctx.stroke();
 ctx.restore();
@@ -176,6 +179,7 @@ canvasTxt.justify = false
 canvasTxt.drawText(ctx, 'Diretor-Presidente', 332, 2500+20, 603, 78)
 canvasTxt.drawText(ctx, info.chefe, 1432, 2500+20, 603, 78)
 
+
 // Cria um botão para download do certificado
 
 download.classList.remove('disabled')
@@ -183,3 +187,4 @@ download.download = `Certificado_${membro.value.split(' ')[0]}.png`;
 download.href = c.toDataURL() 
 
 }
+
